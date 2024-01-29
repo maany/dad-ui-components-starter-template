@@ -6,10 +6,17 @@ import { defineConfig, UserConfig } from "vite";
 import { glob } from "glob";
 import { extname, relative } from "path";
 import { fileURLToPath } from "node:url";
+import tailwindcss from "tailwindcss";
+import { peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [dts({ include: ["lib"] }), react(), libInjectCss()],
+  css: {
+    postcss: {
+      plugins: [tailwindcss],
+    },
+  },
   build: {
     copyPublicDir: false,
     lib: {
@@ -17,7 +24,12 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: ["react", "'react/jsx-runtime'"],
+      external: [
+        "react",
+        "react/jsx-runtime",
+        "tailwindcss",
+        ...Object.keys(peerDependencies),
+      ],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob.sync("lib/**/*.{ts,tsx}").map((file) => [
@@ -32,7 +44,16 @@ export default defineConfig({
       output: {
         assetFileNames: "assets/[name][extname]",
         entryFileNames: "[name].js",
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime",
+          tailwindcss: "tailwindcss",
+          ...peerDependencies,
+        },
       },
     },
+    target: "esnext",
+    sourcemap: true,
   },
 } satisfies UserConfig);

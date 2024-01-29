@@ -1,13 +1,14 @@
 {
   "name": "dad-ui-components-starter-template",
   "author": "Mayank Sharma <imptodefeat@gmail.com>",
-  "private": true,
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "repository": {
     "type": "git",
@@ -16,6 +17,9 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "exports": {
+    "./css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",

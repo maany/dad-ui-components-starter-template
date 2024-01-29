@@ -1,3 +1,6 @@
+import { twMerge } from "tailwind-merge";
+import { primary as primaryStyles, secondary as secondaryStyles } from "./Button.styles";
+
 export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
@@ -31,8 +34,8 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
-  const classes = ["font-bold border-0 rounded-full cursor-pointer inline-block leading-none"].join(' ')
+  const mode = primary ? primaryStyles : secondaryStyles;
+  const classes = twMerge(mode);
   return (
     <button
       type="button"
@@ -40,7 +43,7 @@ export const Button = ({
       style={{ backgroundColor }}
       {...props}
     >
-      <span className='font-bold underline'>{label}</span>
+      {label}
     </button>
   );
 };

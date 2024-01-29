@@ -1,5 +1,8 @@
 import { twMerge } from "tailwind-merge";
-import { primary as primaryStyles, secondary as secondaryStyles } from "./Button.styles";
+import {
+  primary as primaryStyles,
+  secondary as secondaryStyles,
+} from "./Button.styles";
 
 // import { primary as primaryStyles, secondary as secondaryStyles } from "@/components/button/Button.styles";
 
@@ -15,7 +18,7 @@ export interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   /**
    * Button contents
    */
@@ -31,7 +34,7 @@ export interface ButtonProps {
  */
 export const Button = ({
   primary = false,
-  size = 'medium',
+  size = "medium",
   backgroundColor,
   label,
   ...props
@@ -45,7 +48,7 @@ export const Button = ({
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      {label}: {size}
     </button>
   );
 };

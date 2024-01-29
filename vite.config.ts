@@ -13,36 +13,47 @@ import { peerDependencies } from "./package.json";
 export default defineConfig({
   resolve: {
     alias: [
-      { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
-      { find: /^@\/assets\/(.*)/, replacement: path.resolve(__dirname, "lib/assets/$1") },
-    ]
+      {
+        find: /^@\/components\/(.*)/,
+        replacement: path.resolve(__dirname, "lib/components/$1"),
+      },
+      {
+        find: /^@\/assets\/(.*)/,
+        replacement: path.resolve(__dirname, "lib/assets/$1"),
+      },
+    ],
   },
   test: {
     alias: [
-      { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
-      { find: /^@\/assets\/(.*)/, replacement: path.resolve(__dirname, "lib/assets/$1") },
+      {
+        find: /^@\/components\/(.*)/,
+        replacement: path.resolve(__dirname, "lib/components/$1"),
+      },
+      {
+        find: /^@\/assets\/(.*)/,
+        replacement: path.resolve(__dirname, "lib/assets/$1"),
+      },
     ],
     clearMocks: true,
     globals: true,
-    environment: 'jsdom',
+    environment: "jsdom",
     env: {
-      FLAG_TEST_ENV: 'true',
+      FLAG_TEST_ENV: "true",
     },
-    setupFiles: ['tests/vitest.setup.ts'],
-    include: ['tests/**/*.{ts,tsx}'],
-    exclude: ['tests/**/*.setup.{ts,tsx}'],
+    setupFiles: ["tests/vitest.setup.ts"],
+    include: ["tests/**/*.{ts,tsx}"],
+    exclude: ["tests/**/*.setup.{ts,tsx}"],
     coverage: {
-      provider: 'v8',
-      reporter: ['json', 'json-summary', 'html'],
+      provider: "v8",
+      reporter: ["json", "json-summary", "html"],
       exclude: [
-        'app/**/*.{ts,tsx}', 
-        'tests/**/*.{ts,tsx}', 
-        '**/*.config.{ts,tsx,js}', 
-        '.storybook/',
-        "stories/**/*.{ts,tsx}", 
-        '.eslint*'
+        "app/**/*.{ts,tsx}",
+        "tests/**/*.{ts,tsx}",
+        "**/*.config.{ts,tsx,js}",
+        ".storybook/",
+        "stories/**/*.{ts,tsx}",
+        ".eslint*",
       ],
-
     },
   },
 

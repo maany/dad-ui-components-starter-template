@@ -21,7 +21,7 @@
     "./css": "./dist/style.css"
   },
   "scripts": {
-    "clean": "rimraf dist docs coverage",
+    "clean": "rimraf dist docs coverage storybook-static",
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
     "build-docs": "typedoc --out docs lib/index.ts",

@@ -60,22 +60,16 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          path: artifacts
+          path: _site
 
       - name: List all artifacts 🚀
         if: always()
         run: |
-          ls -la artifacts
-
-      - name: Upload Final Artifact 🚀
-        if: always() # TODO: run only when 
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: artifacts
+          ls -la _site
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
+
 
   publish:
     needs: prepare-content

@@ -47,10 +47,10 @@ export default defineConfig({
       provider: "v8",
       reporter: ["json", "json-summary", "html", "lcov", "text"],
       thresholds: {
-          statements: 60,
-          branches: 60,
-          functions: 60,
-          lines: 60,
+        statements: 60,
+        branches: 60,
+        functions: 60,
+        lines: 60,
       },
       exclude: [
         "app/**/*.{ts,tsx}",

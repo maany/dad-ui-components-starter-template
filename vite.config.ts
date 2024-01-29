@@ -18,8 +18,15 @@ export default defineConfig({
     env: {
       FLAG_TEST_ENV: 'true',
     },
-    setupFiles: ['vitest.setup.ts'],
+    setupFiles: ['tests/vitest.setup.ts'],
+    include: ['tests/**/*.{ts,tsx}'],
+    exclude: ['tests/**/*.setup.{ts,tsx}'],
+    coverage: {
+      provider: 'v8',
+      exclude: ['src/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}', '**/*.config.{ts,tsx,js}', '.storybook/', '.eslint*'],
+    },
   },
+
   plugins: [dts({ include: ["lib"] }), react(), libInjectCss()],
   css: {
     postcss: {
@@ -37,6 +44,8 @@ export default defineConfig({
         "react",
         "react/jsx-runtime",
         "tailwindcss",
+        "**/*.test.ts",
+        "**/*.test.tsx",
         ...Object.keys(peerDependencies),
       ],
       input: Object.fromEntries(

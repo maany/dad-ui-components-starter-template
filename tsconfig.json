@@ -22,7 +22,7 @@
 
     "types": ["@testing-library/jest-dom", "vite/client"],
   },
-  "include": ["src", "lib"],
+  "include": ["src", "lib", "tests/components/Button.test.tsx"],
   "exclude": ["node_modules", "./lib/**/*.stories.*"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

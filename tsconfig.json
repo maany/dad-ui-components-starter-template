@@ -21,8 +21,11 @@
     "noFallthroughCasesInSwitch": true,
 
     "types": ["@testing-library/jest-dom", "vite/client"],
+    "paths": {
+      "@/components/*": ["./lib/components/*"],
+    }
   },
   "include": ["src", "lib", "tests/components/Button.test.tsx"],
-  "exclude": ["node_modules", "./lib/**/*.stories.*"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,4 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import path from "path";
+import { loadConfigFromFile, mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../lib/**/*.mdx", "../lib/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -11,12 +13,26 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {
       builder: {
-        viteConfigPath: '.storybook/vite.config.ts'
+        viteConfigPath: '.storybook/vite.config.ts',
       }
     },
   },
   docs: {
     autodocs: "tag",
+  },
+  async viteFinal(config) {
+    // Merge custom configuration into the default config
+    return mergeConfig(config, {
+      // Add dependencies to pre-optimization
+      optimizeDeps: {
+        include: ['storybook-dark-mode'],
+      },
+      resolve: {
+        alias: [
+          { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "../lib/components/$1") },
+        ] 
+      }
+    });
   },
 };
 export default config;

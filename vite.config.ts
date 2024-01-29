@@ -11,7 +11,15 @@ import { peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: [
+      { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
+    ]
+  },
   test: {
+    alias: [
+      { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
+    ],
     clearMocks: true,
     globals: true,
     environment: 'jsdom',

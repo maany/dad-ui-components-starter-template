@@ -25,7 +25,7 @@
       "@/components/*": ["./lib/components/*"],
     }
   },
-  "include": ["src", "lib", "tests/components/Button.test.tsx"],
+  "include": ["app", "lib", "tests/components/Button.test.tsx"],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

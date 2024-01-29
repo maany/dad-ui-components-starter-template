@@ -31,7 +31,7 @@ export default defineConfig({
     exclude: ['tests/**/*.setup.{ts,tsx}'],
     coverage: {
       provider: 'v8',
-      exclude: ['src/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}', '**/*.config.{ts,tsx,js}', '.storybook/', '.eslint*'],
+      exclude: ['app/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}', '**/*.config.{ts,tsx,js}', '.storybook/', '.eslint*'],
     },
   },
 
@@ -52,8 +52,6 @@ export default defineConfig({
         "react",
         "react/jsx-runtime",
         "tailwindcss",
-        "**/*.test.ts",
-        "**/*.test.tsx",
         ...Object.keys(peerDependencies),
       ],
       input: Object.fromEntries(

@@ -26,7 +26,7 @@
     "build": "tsc --p ./tsconfig-build.json && vite build",
     "build-docs": "typedoc --out docs lib/index.ts",
     "build-storybook": "storybook build",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"lib/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"app/**/*.{ts,tsx}\" \"lib/**/*.{ts,tsx}\" \"stories/**/*.{ts,tsx}\"",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",

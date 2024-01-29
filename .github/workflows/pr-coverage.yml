@@ -1,8 +1,8 @@
-name: Report Coverage
+name: Report PR Coverage
 
 on:
   workflow_run:
-    workflows: ["Lint and Test"]
+    workflows: ["Lint and Test PR"]
     types:
       - completed
 

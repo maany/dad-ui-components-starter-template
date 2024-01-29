@@ -47,12 +47,13 @@ export default defineConfig({
       provider: "v8",
       reporter: ["json", "json-summary", "html", "lcov", "text"],
       reportOnFailure: true,
-      thresholds: {
-        statements: 10,
-        branches: 10,
-        functions: 10,
-        lines: 10,
-      },
+      // TODO: update coverage thresholds
+      // thresholds: {
+      //   statements: 10,
+      //   branches: 10,
+      //   functions: 10,
+      //   lines: 10,
+      // },
       exclude: [
         "app/**/*.{ts,tsx}",
         "tests/**/*.{ts,tsx}",

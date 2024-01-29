@@ -80,16 +80,6 @@ jobs:
             name: _site
             path: _site
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: _site
-
-      
-
   publish:
     needs: prepare-content
     

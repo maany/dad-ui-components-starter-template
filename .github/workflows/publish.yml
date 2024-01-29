@@ -1,0 +1,59 @@
+name: Publish Storybook and Docs
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install 🔧
+        run: |
+          npm install
+
+      - name: Build Docs 🔧
+        run: |
+          npm run build
+
+      - name: "Upload Coverage"
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: docs
+
+      - name: Build Storybook 🔧
+        run: |
+          npm run build-storybook
+
+      - name: "Upload Storybook"
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: storybook
+
+      - name: Download all Artifacts 🚀
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: artifacts
+
+      - name: List all artifacts 🚀
+        run: |
+          ls -la artifacts
+
+
+
+     

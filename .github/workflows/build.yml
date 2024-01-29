@@ -1,6 +1,10 @@
-name: Build Component Library, Docs
+name: Build Component Library and Docs
 on:
   pull_request:
+  push:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,10 +16,11 @@ jobs:
         run: |
           npm install
 
-      - name: Build App 🔧
+      - name: Build Library 🔧
         run: |
           npm run build
+      
       - name: Build Docs 🔧
         run: |
-          npm run 
+          npm run build-docs
   

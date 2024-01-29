@@ -27,3 +27,4 @@ dist-ssr
 build/
 coverage/
 docs/
+storybook-static/

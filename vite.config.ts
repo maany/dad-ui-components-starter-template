@@ -18,7 +18,7 @@ export default defineConfig({
     env: {
       FLAG_TEST_ENV: 'true',
     },
-    setupFiles: ['setupTests.ts'],
+    setupFiles: ['vitest.setup.ts'],
   },
   plugins: [dts({ include: ["lib"] }), react(), libInjectCss()],
   css: {

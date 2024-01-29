@@ -1,6 +1,6 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import path from "path";
-import { loadConfigFromFile, mergeConfig } from "vite";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../stories/**/*.mdx", "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -30,6 +30,7 @@ const config: StorybookConfig = {
       resolve: {
         alias: [
           { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "../lib/components/$1") },
+          { find: /^@\/assets\/(.*)/, replacement: path.resolve(__dirname, "../lib/assets/$1") }
         ] 
       }
     });

@@ -14,11 +14,13 @@ export default defineConfig({
   resolve: {
     alias: [
       { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
+      { find: /^@\/assets\/(.*)/, replacement: path.resolve(__dirname, "lib/assets/$1") },
     ]
   },
   test: {
     alias: [
       { find: /^@\/components\/(.*)/, replacement: path.resolve(__dirname, "lib/components/$1") },
+      { find: /^@\/assets\/(.*)/, replacement: path.resolve(__dirname, "lib/assets/$1") },
     ],
     clearMocks: true,
     globals: true,
@@ -31,7 +33,13 @@ export default defineConfig({
     exclude: ['tests/**/*.setup.{ts,tsx}'],
     coverage: {
       provider: 'v8',
-      exclude: ['app/**/*.{ts,tsx}', 'tests/**/*.{ts,tsx}', '**/*.config.{ts,tsx,js}', '.storybook/', '.eslint*'],
+      exclude: [
+        'app/**/*.{ts,tsx}', 
+        'tests/**/*.{ts,tsx}', 
+        '**/*.config.{ts,tsx,js}', 
+        '.storybook/',
+        "stories/**/*.{ts,tsx}", 
+        '.eslint*'],
     },
   },
 

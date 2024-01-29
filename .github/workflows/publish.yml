@@ -49,18 +49,21 @@ jobs:
           npm run test
 
       - name: "Upload Coverage Report"
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: coverage
           path: coverage
       
       - name: Download all Artifacts 🚀
+        if: always()
         uses: actions/download-artifact@v4
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: artifacts
 
       - name: List all artifacts 🚀
+        if: always()
         run: |
           ls -la artifacts
 

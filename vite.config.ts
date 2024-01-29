@@ -46,6 +46,7 @@ export default defineConfig({
     coverage: {
       provider: "v8",
       reporter: ["json", "json-summary", "html", "lcov", "text"],
+      reportOnFailure: true,
       thresholds: {
         statements: 60,
         branches: 60,

@@ -7,5 +7,6 @@ describe('<Button/>', () => {
         render(<Button label='Click Me'/>)
         expect(screen.getByRole('button')).toBeInTheDocument()
         expect(screen.getByRole('button')).toHaveTextContent('Click Me')
+        expect(screen.getByRole('button')).toHaveClass('rounded-full')
     })
 })

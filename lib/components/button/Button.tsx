@@ -1,5 +1,4 @@
-import React from 'react';
-// import './button.css';
+import './button.css';
 import styles from './button.module.scss';
 interface ButtonProps {
   /**
@@ -35,14 +34,15 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const classes = ["font-bold border-0 rounded-full cursor-pointer inline-block leading-none"].join(' ')
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode,].join(' ')}
+      className={classes}
       style={{ backgroundColor }}
       {...props}
     >
-      {label}
+      <span className='font-bold underline'>{label}</span>
     </button>
   );
 };

@@ -2,7 +2,7 @@ import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
 import path from "path";
 import react from "@vitejs/plugin-react-swc";
-import { defineConfig, UserConfig } from "vite";
+import { defineConfig, UserConfig } from "vitest/config";
 import { glob } from "glob";
 import { extname, relative } from "path";
 import { fileURLToPath } from "node:url";
@@ -11,6 +11,15 @@ import { peerDependencies } from "./package.json";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    clearMocks: true,
+    globals: true,
+    environment: 'jsdom',
+    env: {
+      FLAG_TEST_ENV: 'true',
+    },
+    setupFiles: ['setupTests.ts'],
+  },
   plugins: [dts({ include: ["lib"] }), react(), libInjectCss()],
   css: {
     postcss: {

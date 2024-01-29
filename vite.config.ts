@@ -33,13 +33,16 @@ export default defineConfig({
     exclude: ['tests/**/*.setup.{ts,tsx}'],
     coverage: {
       provider: 'v8',
+      reporter: ['json', 'json-summary', 'html'],
       exclude: [
         'app/**/*.{ts,tsx}', 
         'tests/**/*.{ts,tsx}', 
         '**/*.config.{ts,tsx,js}', 
         '.storybook/',
         "stories/**/*.{ts,tsx}", 
-        '.eslint*'],
+        '.eslint*'
+      ],
+
     },
   },
 

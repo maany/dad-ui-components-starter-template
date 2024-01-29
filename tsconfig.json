@@ -27,6 +27,6 @@
     }
   },
   "include": ["app", "lib", "tests", "stories"],
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "tools"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

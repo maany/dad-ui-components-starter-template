@@ -69,10 +69,11 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: _site
 
-      - name: List all artifacts 🚀
+      - name: Add Home Page to artifacts 🚀
         if: always()
         run: |
-          ls -la _site
+          cp -r tools/gh-pages/* _site/
+          ls -la _site/
 
       - name: "Upload Final Site"
         uses: actions/upload-artifact@v4

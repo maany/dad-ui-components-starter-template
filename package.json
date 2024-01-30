@@ -1,8 +1,8 @@
 {
-  "name": "dad-ui-components-starter-template",
+  "name": "@maany_shr/dad-ui-components-starter-template",
+  "version": "0.0.0",
   "author": "Mayank Sharma <imptodefeat@gmail.com>",
   "private": false,
-  "version": "0.0.1",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

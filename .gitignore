@@ -28,3 +28,6 @@ build/
 coverage/
 docs/
 storybook-static/
+
+
+.env

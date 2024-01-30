@@ -25,4 +25,4 @@ jobs:
         with:
           json-summary-path: coverage-latest/coverage-summary.json
           json-final-path: coverage-latest/coverage-final.json
-          file-coverage-mode: "changes"
+          file-coverage-mode: "all"

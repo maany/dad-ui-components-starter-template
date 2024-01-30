@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
   
   function redirectTo(path) {
-    window.location.href = path;
+    const home = window.location.href
+    window.location.href = home + path;
   }
   

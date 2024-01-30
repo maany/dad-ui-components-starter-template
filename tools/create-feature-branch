@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [[ $# -ne 2 ]] ; then
     echo 'usage: tools/create-feature-branch <ticketnumber> <branchname>'
     echo
